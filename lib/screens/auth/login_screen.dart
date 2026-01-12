@@ -32,7 +32,7 @@ class LoginScreen extends StatelessWidget {
               // Email Field
               TextField(
                 decoration: InputDecoration(
-                  labelText: "Email",
+                  labelText: "student Id",
                   prefixIcon: const Icon(Icons.email),
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(12),
@@ -41,17 +41,17 @@ class LoginScreen extends StatelessWidget {
               ),
               const SizedBox(height: 20),
 
-              // Password Field
-              TextField(
-                obscureText: true,
-                decoration: InputDecoration(
-                  labelText: "Password",
-                  prefixIcon: const Icon(Icons.lock),
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(12),
-                  ),
-                ),
-              ),
+              // // Password Field
+              // TextField(
+              //   obscureText: true,
+              //   decoration: InputDecoration(
+              //     labelText: "Password",
+              //     prefixIcon: const Icon(Icons.lock),
+              //     border: OutlineInputBorder(
+              //       borderRadius: BorderRadius.circular(12),
+              //     ),
+              //   ),
+              // ),
               const SizedBox(height: 30),
 
               // Login Button
@@ -59,7 +59,6 @@ class LoginScreen extends StatelessWidget {
                 height: 50,
                 child: ElevatedButton(
                   onPressed: () {
-
                     Navigator.pushReplacementNamed(context, '/userType');
                   },
                   child: const Text("Login"),

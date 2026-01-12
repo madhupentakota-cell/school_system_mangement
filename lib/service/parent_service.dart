@@ -1,8 +1,6 @@
 import '../models/assignment_model.dart';
-import '../models/attendence_model.dart';
 import '../models/student_details.dart';
 import '../models/time_table_model.dart';
-
 
 final List<AssignmentModel> assignmentList = [
   AssignmentModel(
@@ -27,7 +25,6 @@ final List<AssignmentModel> assignmentList = [
     // false,
   ),
 ];
-
 
 class ParentService {
   final Map<String, List<TimetableItem>> weeklyTimetable = {
@@ -158,22 +155,20 @@ class ParentService {
 
   /* ------------------ Dummy Data ------------------ */
 
-
-
   Future createAssignment({
     required String subject,
     required String teacher,
     required String description,
   }) async {
-    DateTime now =  DateTime.now();
-    String formattedDateA = "${now.year}-${now.month.toString().padLeft(2, '0')}-${now.day.toString().padLeft(2, '0')}";
+    DateTime now = DateTime.now();
+    String formattedDateA =
+        "${now.year}-${now.month.toString().padLeft(2, '0')}-${now.day.toString().padLeft(2, '0')}";
     assignmentList.add(
       AssignmentModel(
         subject: subject,
         teacher: teacher,
-        dueDate:formattedDateA,
+        dueDate: formattedDateA,
         description: description,
-
       ),
     );
   }

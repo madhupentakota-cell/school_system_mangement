@@ -34,92 +34,94 @@ class _TeacherDashboardState extends State<TeacherDashboard> {
           },
         ),
       ),
-      body:_currentIndex==1?AssignmentScreen():  Column(
-        children: [
-          // Carousel Slider for notices/announcements
-          CarouselSlider(
-            options: CarouselOptions(
-              height: 180,
-              autoPlay: true,
-              autoPlayInterval: const Duration(seconds: 3),
-              autoPlayCurve: Curves.fastOutSlowIn,
-            ),
-            items: imageList.map((i) {
-              return Builder(
-                builder: (BuildContext context) {
-                  return Container(
-                    margin: const EdgeInsets.symmetric(horizontal: 10.0),
-                    decoration: BoxDecoration(
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.indigo.withOpacity(0.4),
-                          spreadRadius: 3,
-                          blurRadius: 5,
+      body: _currentIndex == 1
+          ? AssignmentScreen()
+          : Column(
+              children: [
+                // Carousel Slider for notices/announcements
+                CarouselSlider(
+                  options: CarouselOptions(
+                    height: 180,
+                    autoPlay: true,
+                    autoPlayInterval: const Duration(seconds: 3),
+                    autoPlayCurve: Curves.fastOutSlowIn,
+                  ),
+                  items: imageList.map((i) {
+                    return Builder(
+                      builder: (BuildContext context) {
+                        return Container(
+                          margin: const EdgeInsets.symmetric(horizontal: 10.0),
+                          decoration: BoxDecoration(
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.indigo.withOpacity(0.4),
+                                spreadRadius: 3,
+                                blurRadius: 5,
+                              ),
+                            ],
+                            borderRadius: BorderRadius.circular(12),
+                          ),
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(12),
+                            child: Image.network(i, fit: BoxFit.cover),
+                          ),
+                        );
+                      },
+                    );
+                  }).toList(),
+                ),
+
+                const SizedBox(height: 16),
+
+                // Grid Options
+                Expanded(
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 16),
+                    child: GridView.count(
+                      crossAxisCount: 2,
+                      crossAxisSpacing: 16,
+                      mainAxisSpacing: 16,
+                      children: [
+                        _DashboardOption(
+                          title: "Attendance",
+                          icon: Icons.check_circle,
+                          ontap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (_) => AttendanceCalendarScreen(),
+                              ),
+                            );
+                          },
+                        ),
+                        _DashboardOption(
+                          title: "Time Table",
+                          icon: Icons.calendar_month,
+                          ontap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (_) => const TimetableScreen(),
+                              ),
+                            );
+                          },
+                        ),
+                        _DashboardOption(
+                          title: "Exam Results",
+                          icon: Icons.bar_chart,
+                          ontap: () {},
+                        ),
+                        _DashboardOption(
+                          title: "Student Details",
+                          icon: Icons.person,
+                          ontap: () {},
                         ),
                       ],
-                      borderRadius: BorderRadius.circular(12),
                     ),
-                    child: ClipRRect(
-                      borderRadius: BorderRadius.circular(12),
-                      child: Image.network(i, fit: BoxFit.cover),
-                    ),
-                  );
-                },
-              );
-            }).toList(),
-          ),
-
-          const SizedBox(height: 16),
-
-          // Grid Options
-          Expanded(
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16),
-              child: GridView.count(
-                crossAxisCount: 2,
-                crossAxisSpacing: 16,
-                mainAxisSpacing: 16,
-                children: [
-                  _DashboardOption(
-                    title: "Attendance",
-                    icon: Icons.check_circle,
-                    ontap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (_) => AttendanceCalendarScreen(),
-                        ),
-                      );
-                    },
                   ),
-                  _DashboardOption(
-                    title: "Time Table",
-                    icon: Icons.calendar_month,
-                    ontap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (_) => const TimetableScreen(),
-                        ),
-                      );
-                    },
-                  ),
-                  _DashboardOption(
-                    title: "Exam Results",
-                    icon: Icons.bar_chart,
-                    ontap: () {},
-                  ),
-                  _DashboardOption(
-                    title: "Student Details",
-                    icon: Icons.person,
-                    ontap: () {},
-                  ),
-                ],
-              ),
+                ),
+              ],
             ),
-          ),
-        ],
-      ),
       // 🔹 Bottom Navigation
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _currentIndex,
@@ -147,7 +149,6 @@ class _DashboardOption extends StatelessWidget {
   final VoidCallback ontap;
 
   const _DashboardOption({
-    super.key,
     required this.title,
     required this.icon,
     required this.ontap,

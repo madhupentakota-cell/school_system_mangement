@@ -40,136 +40,177 @@ class _ParentDashboardState extends State<ParentDashboard> {
         onProfileTap: () {},
       ),
 
-      body:_currentIndex==1?AssignmentScreen(): Column(
-        children: [
-          // 🔹 Carousel
-          CarouselSlider(
-            options: CarouselOptions(
-              height: 200,
-              autoPlay: true,
-              autoPlayInterval: const Duration(seconds: 3),
-              autoPlayAnimationDuration: const Duration(milliseconds: 800),
-              autoPlayCurve: Curves.fastOutSlowIn,
-            ),
-            items: imageList.map((image) {
-              return Container(
-                margin: const EdgeInsets.symmetric(horizontal: 10),
+      body: _currentIndex == 1
+          ? AssignmentScreen()
+          : SingleChildScrollView(
+              child: Container(
                 decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(16),
-                  boxShadow: const [
-                    BoxShadow(
-                      color: Colors.indigo,
-                      blurRadius: 4,
-                      spreadRadius: 2,
-                    ),
-                  ],
+                  image: DecorationImage(
+                    image: AssetImage('assets/images/background.jpg'),
+                    fit: BoxFit.cover,
+                    opacity: 0.2,
+                  ),
                 ),
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(16),
-                  child: Image.network(image, fit: BoxFit.cover),
-                ),
-              );
-            }).toList(),
-          ),
-
-          const SizedBox(height: 16),
-
-          // 🔹 Dashboard Grid
-          Expanded(
-            child: Padding(
-              padding: const EdgeInsets.all(16),
-              child: GridView.count(
-                crossAxisCount: 2,
-                crossAxisSpacing: 16,
-                mainAxisSpacing: 16,
-                children: [
-                  _DashboardOption(
-                    title: "Exam Results",
-                    icon: Icons.bar_chart,
-                    ontap: () {
-                      Navigator.pushNamed(context, '/result');
-                    },
-                  ),
-                  _DashboardOption(
-                    title: "Time Table",
-                    icon: Icons.calendar_month,
-                    ontap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (_) => const TimetableScreen(),
+                height: MediaQuery.of(context).size.height * 0.82,
+                child: Column(
+                  children: [
+                    // 🔹 Carousel
+                    CarouselSlider(
+                      options: CarouselOptions(
+                        height: 200,
+                        autoPlay: true,
+                        autoPlayInterval: const Duration(seconds: 3),
+                        autoPlayAnimationDuration: const Duration(
+                          milliseconds: 800,
                         ),
-                      );
-                    },
-                  ),
-                  _DashboardOption(
-                    title: "Student Details",
-                    icon: Icons.person,
-                    ontap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (_) => const StudentDetailsScreen(),
-                        ),
-                      );
-                    },
-                  ),
-
-                  // 🔹 Attendance Card
-                  Card(
-                    elevation: 4,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(16),
-                    ),
-                    child: InkWell(
-                      borderRadius: BorderRadius.circular(16),
-                      onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (_) =>  AttendanceCalendarScreen(),
-                          ),
-                        );
-                      },
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Stack(
-                            alignment: Alignment.center,
-                            children: const [
-                              SizedBox(
-                                width: 80,
-                                height: 80,
-                                child: CircularProgressIndicator(
-                                  value: 0.7,
-                                  strokeWidth: 8,
-                                  color: Colors.indigo,
-                                ),
-                              ),
-                              Text(
-                                "70%",
-                                style: TextStyle(
-                                  fontSize: 18,
-                                  fontWeight: FontWeight.bold,
-                                ),
+                        autoPlayCurve: Curves.fastOutSlowIn,
+                      ),
+                      items: imageList.map((image) {
+                        return Container(
+                          padding: EdgeInsets.all(2),
+                          margin: EdgeInsets.symmetric(horizontal: 10),
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(16),
+                            boxShadow: const [
+                              BoxShadow(
+                                color: Color.fromARGB(255, 134, 150, 230),
+                                blurRadius: 10,
+                                spreadRadius: 0.5,
                               ),
                             ],
                           ),
-                          const SizedBox(height: 12),
-                          Text(
-                            "Attendance",
-                            style: Theme.of(context).textTheme.titleMedium,
-                          ),
-                        ],
+                          child: Image.network(image, fit: BoxFit.cover),
+                        );
+                      }).toList(),
+                    ),
+
+                    ColoredBox(
+                      color: Colors.white,
+                      child: Padding(
+                        padding: EdgeInsetsGeometry.all(10),
+                        child: Text(
+                          "Today quote",
+                          style: Theme.of(
+                            context,
+                          ).textTheme.bodyLarge!.copyWith(color: Colors.black),
+                        ),
                       ),
                     ),
-                  ),
-                ],
+                    Container(
+                      color: Colors.white,
+                      padding: EdgeInsets.all(5),
+                      child: Text(
+                        "Don’t study to pass exams. Study to build a future.",
+                        style: Theme.of(context).textTheme.headlineSmall!
+                            .copyWith(fontFamily: 'italian'),
+                        maxLines: 3,
+                        textAlign: TextAlign.center,
+                      ),
+                    ),
+
+                    // 🔹 Dashboard Grid
+                    Expanded(
+                      child: Padding(
+                        padding: const EdgeInsets.all(16),
+                        child: GridView.count(
+                          crossAxisCount: 2,
+                          crossAxisSpacing: 16,
+                          mainAxisSpacing: 16,
+                          childAspectRatio: 1.1,
+                          children: [
+                            _DashboardOption(
+                              title: "Exam Results",
+                              icon: Icons.bar_chart,
+                              ontap: () {
+                                Navigator.pushNamed(context, '/result');
+                              },
+                            ),
+                            _DashboardOption(
+                              title: "Time Table",
+                              icon: Icons.calendar_month,
+                              ontap: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (_) => const TimetableScreen(),
+                                  ),
+                                );
+                              },
+                            ),
+                            _DashboardOption(
+                              title: "Student Details",
+                              icon: Icons.person,
+                              ontap: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (_) =>
+                                        const StudentDetailsScreen(),
+                                  ),
+                                );
+                              },
+                            ),
+
+                            // 🔹 Attendance Card
+                            Card(
+                              elevation: 4,
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(16),
+                              ),
+                              child: InkWell(
+                                borderRadius: BorderRadius.circular(16),
+                                onTap: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (_) =>
+                                          AttendanceCalendarScreen(),
+                                    ),
+                                  );
+                                },
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Stack(
+                                      alignment: Alignment.center,
+                                      children: const [
+                                        SizedBox(
+                                          width: 80,
+                                          height: 80,
+                                          child: CircularProgressIndicator(
+                                            value: 0.7,
+                                            strokeWidth: 8,
+                                            color: Colors.indigo,
+                                          ),
+                                        ),
+                                        Text(
+                                          "70%",
+                                          style: TextStyle(
+                                            fontSize: 18,
+                                            fontWeight: FontWeight.bold,
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                    const SizedBox(height: 12),
+                                    Text(
+                                      "Attendance",
+                                      style: Theme.of(
+                                        context,
+                                      ).textTheme.titleMedium,
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ),
-          ),
-        ],
-      ),
 
       // 🔹 Bottom Navigation
       bottomNavigationBar: BottomNavigationBar(
@@ -181,10 +222,7 @@ class _ParentDashboardState extends State<ParentDashboard> {
           });
         },
         items: const [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: "Home",
-          ),
+          BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
           BottomNavigationBarItem(
             icon: Icon(Icons.list_alt_rounded),
             label: "Assignments",
@@ -230,8 +268,3 @@ class _DashboardOption extends StatelessWidget {
     );
   }
 }
-
-
-
-
-
