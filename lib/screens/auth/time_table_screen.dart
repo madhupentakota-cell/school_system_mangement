@@ -9,16 +9,14 @@ class TimetableScreen extends StatelessWidget {
     final timetable = ParentService().weeklyTimetable;
 
     return Scaffold(
-      appBar: AppBar(
-        title: const Text("Time Table"),
-        centerTitle: true,
-      ),
+      appBar: AppBar(title: const Text("Time Table"), centerTitle: true),
       body: PageView(
         children: timetable.entries.map((entry) {
           return Padding(
             padding: const EdgeInsets.all(16),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 // Day Header
                 Center(

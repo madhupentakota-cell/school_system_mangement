@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:schoolmanagementsystem/service/parent_service.dart';
+import 'package:schoolmanagementsystem/utils/utils.dart';
 
 import '../../models/student_details.dart';
 
@@ -10,10 +11,7 @@ class StudentDetailsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     StudentDetails student = ParentService().student;
     return Scaffold(
-      appBar: AppBar(
-        title: const Text("Student Details"),
-        centerTitle: true,
-      ),
+      appBar: AppBar(title: const Text("Student Details"), centerTitle: true),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(16),
         child: Column(
@@ -25,11 +23,7 @@ class StudentDetailsScreen extends StatelessWidget {
                 child: Row(
                   children: [
                     // LEFT: Profile Image
-                    const CircleAvatar(
-                      radius: 40,
-                      child: Icon(Icons.person, size: 45),
-                    ),
-
+                    Image.network(ImageUrl.person),
                     const SizedBox(width: 16),
 
                     // RIGHT: Student Details
@@ -58,7 +52,6 @@ class StudentDetailsScreen extends StatelessWidget {
                 ),
               ),
             ),
-
 
             const SizedBox(height: 16),
 

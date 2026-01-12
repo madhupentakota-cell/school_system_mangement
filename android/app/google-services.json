@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "926896961952",
+    "project_id": "testiosproject-7c1f5",
+    "storage_bucket": "testiosproject-7c1f5.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:926896961952:android:f83a0c6b13f353428fccc5",
+        "android_client_info": {
+          "package_name": "com.example.schoolmanagementsystem"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCzQCLF2DwcVqmGSJYDe-Bwk9PoHhgbzIw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

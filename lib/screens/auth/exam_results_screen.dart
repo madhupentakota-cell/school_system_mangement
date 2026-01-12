@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 import 'package:confetti/confetti.dart';
+import 'package:schoolmanagementsystem/utils/utils.dart';
 
 class StudentResultScreen extends StatefulWidget {
   const StudentResultScreen({super.key});
@@ -70,7 +71,6 @@ class _StudentResultScreenState extends State<StudentResultScreen>
     }
 
     return Scaffold(
-
       appBar: AppBar(title: const Text("Exam Result"), centerTitle: true),
       body: Stack(
         children: [
@@ -92,48 +92,71 @@ class _StudentResultScreenState extends State<StudentResultScreen>
                       child: Padding(
                         padding: const EdgeInsets.all(16),
                         child: Row(
+                          crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
-                            /// Circular Score
-                            Stack(
-                              alignment: Alignment.center,
-                              children: [
-                                SizedBox(
-                                  width: 90,
-                                  height: 90,
-                                  child: CircularProgressIndicator(
-                                    value: percentage,
-                                    strokeWidth: 8,
-                                  ),
-                                ),
-                                Text(
-                                  "${(percentage * 100).toInt()}%",
-                                  style: const TextStyle(
-                                    fontSize: 18,
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                ),
-                              ],
+                            Container(
+                              decoration: BoxDecoration(
+                                color: Colors.white,
+                                boxShadow: [BoxShadow(color: Colors.teal)],
+                              ),
+                              height: 100,
+                              child: Image.network(
+                                ImageUrl.person,
+                                fit: BoxFit.cover,
+                              ),
                             ),
-
-                            const SizedBox(width: 20),
-
-                            /// Grade + Score
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
+                            SizedBox(width: 20),
+                            Row(
                               children: [
-                                const Text("Grade"),
-                                Text(
-                                  grade,
-                                  style: Theme.of(context).textTheme.headlineSmall?.copyWith(
-                                    color:
-                                    grade == "F" ? Colors.red : Colors.indigo,
-                                  ),
+                                /// Circular Score
+                                Stack(
+                                  alignment: Alignment.center,
+                                  children: [
+                                    SizedBox(
+                                      width: 90,
+                                      height: 90,
+                                      child: CircularProgressIndicator(
+                                        value: percentage,
+                                        strokeWidth: 8,
+                                      ),
+                                    ),
+                                    Text(
+                                      "${(percentage * 100).toInt()}%",
+                                      style: const TextStyle(
+                                        fontSize: 18,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                  ],
                                 ),
-                                const SizedBox(height: 8),
-                                const Text("Total Score"),
-                                Text(
-                                  "$totalMarks / $maxMarks",
-                                  style: Theme.of(context).textTheme.titleMedium,
+
+                                const SizedBox(width: 20),
+
+                                /// Grade + Score
+                                Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    const Text("Grade"),
+                                    Text(
+                                      grade,
+                                      style: Theme.of(context)
+                                          .textTheme
+                                          .headlineSmall
+                                          ?.copyWith(
+                                            color: grade == "F"
+                                                ? Colors.red
+                                                : Colors.indigo,
+                                          ),
+                                    ),
+                                    const SizedBox(height: 8),
+                                    const Text("Total Score"),
+                                    Text(
+                                      "$totalMarks / $maxMarks",
+                                      style: Theme.of(
+                                        context,
+                                      ).textTheme.titleMedium,
+                                    ),
+                                  ],
                                 ),
                               ],
                             ),
@@ -158,7 +181,6 @@ class _StudentResultScreenState extends State<StudentResultScreen>
                     ),
                   ],
                 ),
-
 
                 const SizedBox(height: 24),
 

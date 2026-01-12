@@ -8,10 +8,7 @@ class UserTypeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text("Select User Type"),
-        centerTitle: true,
-      ),
+      appBar: AppBar(title: const Text("Select User Type"), centerTitle: true),
       body: Padding(
         padding: const EdgeInsets.all(16),
         child: Column(
@@ -19,10 +16,7 @@ class UserTypeScreen extends StatelessWidget {
           children: [
             const Text(
               "Who are you?",
-              style: TextStyle(
-                fontSize: 24,
-                fontWeight: FontWeight.bold,
-              ),
+              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
               textAlign: TextAlign.center,
             ),
             const SizedBox(height: 24),
@@ -71,31 +65,33 @@ class UserTypeScreen extends StatelessWidget {
                 ],
               ),
             ),
-            ElevatedButton(onPressed: (){
-              switch (UserModel.userType) {
-                case "Admin":
-                  Navigator.pushNamed(context, '/admin');
-                  break;
+            ElevatedButton(
+              onPressed: () {
+                switch (UserModel.userType) {
+                  case "Admin":
+                    Navigator.pushNamed(context, '/admin');
+                    break;
 
-                case "Incharge":
-                  Navigator.pushNamed(context, '/incharge');
-                  break;
+                  case "Incharge":
+                    Navigator.pushNamed(context, '/incharge');
+                    break;
 
-                case "Parent":
-                  Navigator.pushNamed(context, '/parent');
-                  break;
+                  case "Parent":
+                    Navigator.pushNamed(context, '/parent');
+                    break;
 
-                case "Teacher":
-                  Navigator.pushNamed(context, '/teacher');
-                  break;
+                  case "Teacher":
+                    Navigator.pushNamed(context, '/teacher');
+                    break;
 
-                default:
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    const SnackBar(content: Text("Invalid user type")),
-                  );
-              }
-
-            }, child: Icon(Icons.subdirectory_arrow_left_sharp))
+                  default:
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      const SnackBar(content: Text("Invalid user type")),
+                    );
+                }
+              },
+              child: Icon(Icons.subdirectory_arrow_left_sharp),
+            ),
           ],
         ),
       ),
@@ -109,7 +105,6 @@ class _UserTypeCard extends StatelessWidget {
   final VoidCallback onTap;
 
   const _UserTypeCard({
-    super.key,
     required this.title,
     required this.icon,
     required this.onTap,
@@ -120,9 +115,7 @@ class _UserTypeCard extends StatelessWidget {
     return Card(
       elevation: 4,
       shadowColor: Colors.indigo,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(16),
-      ),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
       child: InkWell(
         borderRadius: BorderRadius.circular(16),
         onTap: onTap,

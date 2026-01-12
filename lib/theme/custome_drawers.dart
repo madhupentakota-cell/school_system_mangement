@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:schoolmanagementsystem/screens/auth/fee_screen.dart';
+import 'package:schoolmanagementsystem/screens/auth/leave_request_screen.dart';
 
 Drawer TeacherDrawer() {
   return Drawer(
@@ -117,6 +119,10 @@ class ParentDrawer extends StatelessWidget {
             trailing: const Icon(Icons.arrow_forward_ios, size: 16),
             onTap: () {
               // Navigate to fee history screen
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => FeeScreen()),
+              );
             },
           ),
 
@@ -130,6 +136,10 @@ class ParentDrawer extends StatelessWidget {
             trailing: const Icon(Icons.arrow_forward_ios, size: 16),
             onTap: () {
               // Navigate to leave request screen
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => LeaveRequestScreen()),
+              );
             },
           ),
 
