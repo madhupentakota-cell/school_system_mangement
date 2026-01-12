@@ -153,6 +153,20 @@ class ParentDrawer extends StatelessWidget {
             },
           ),
 
+          // pickup request
+          ListTile(
+            leading: const Icon(
+              Icons.directions_bike_sharp,
+              color: Colors.indigo,
+            ),
+            title: const Text("Pickup request"),
+            trailing: const Icon(Icons.arrow_forward_ios, size: 16),
+            onTap: () {
+              // Navigate to complaint screen
+              Navigator.pushNamed(context, '/pickup');
+            },
+          ),
+
           const Divider(),
 
           // Logout

@@ -15,14 +15,8 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      leading: IconButton(
-        icon: const Icon(Icons.menu),
-        onPressed: onMenuTap,
-      ),
-      title: Text(
-        title,
-        style: Theme.of(context).textTheme.titleLarge,
-      ),
+      leading: IconButton(icon: const Icon(Icons.menu), onPressed: onMenuTap),
+      title: Text(title, style: Theme.of(context).textTheme.titleLarge),
       centerTitle: true,
       actions: [
         GestureDetector(
@@ -32,10 +26,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
             child: CircleAvatar(
               radius: 18,
               backgroundColor: Theme.of(context).colorScheme.primary,
-              child: const Icon(
-                Icons.person,
-                color: Colors.white,
-              ),
+              child: const Icon(Icons.person, color: Colors.white),
             ),
           ),
         ),
@@ -45,4 +36,8 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
 
   @override
   Size get preferredSize => const Size.fromHeight(kToolbarHeight);
+}
+
+AppBar basicAppBar({required String title}) {
+  return AppBar(title: Text(title), leading: Icon(Icons.arrow_back));
 }
