@@ -1,98 +1,82 @@
 import 'package:flutter/material.dart';
+import 'package:pinput/pinput.dart';
 
 import '../../models/user_model.dart';
 
-class UserTypeScreen extends StatelessWidget {
+class UserTypeScreen extends StatefulWidget {
   const UserTypeScreen({super.key});
+
+  @override
+  State<UserTypeScreen> createState() => _UserTypeScreenState();
+}
+
+class _UserTypeScreenState extends State<UserTypeScreen> {
+  final int pinLength = 4;
+
+   TextEditingController? controllers;
+
+  late List<FocusNode> focusNodes;
+  String pin = "";
+  @override
+  void initState() {
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+  }
+
+  void onPinChanged(String value, int index) {
+    print("pin: $value");
+    if (value.isNotEmpty && index < pinLength - 1) {
+      focusNodes[index + 1].requestFocus();
+    }
+    if (value.isEmpty && index > 0) {
+      focusNodes[index - 1].requestFocus();
+    }
+  }
+
+  void submitPin() {
+    if (pin.length == pinLength) {
+      print("Entered PIN: $pin");
+
+      ScaffoldMessenger.of(
+        context,
+      ).showSnackBar(SnackBar(content: Text("PIN Entered: $pin")));
+    } else {
+      ScaffoldMessenger.of(
+        context,
+      ).showSnackBar(const SnackBar(content: Text("Enter complete PIN")));
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text("Select User Type"), centerTitle: true),
-      body: Padding(
-        padding: const EdgeInsets.all(16),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            const Text(
-              "Who are you?",
-              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-              textAlign: TextAlign.center,
-            ),
-            const SizedBox(height: 24),
+      appBar: AppBar(title: const Text("Enter PIN")),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          const Text(
+            "Enter your PIN code",
+            style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+          ),
 
-            // User Type Cards
-            Expanded(
-              child: GridView.count(
-                crossAxisCount: 2,
-                crossAxisSpacing: 16,
-                mainAxisSpacing: 16,
-                children: [
-                  _UserTypeCard(
-                    title: "Teacher",
-                    icon: Icons.school,
-                    onTap: () {
-                      // Navigate to teacher dashboard
-                      UserModel.userType = "Teacher";
-                      // Navigator.pushNamed(context, '/teacher');
-                    },
-                  ),
-                  _UserTypeCard(
-                    title: "Parent",
-                    icon: Icons.person,
-                    onTap: () {
-                      // Navigate to parent dashboard
-                      UserModel.userType = "Parent";
-                      // Navigator.pushNamed(context, '/parent');
-                    },
-                  ),
-                  _UserTypeCard(
-                    title: "Incharge",
-                    icon: Icons.manage_accounts,
-                    onTap: () {
-                      UserModel.userType = "Incharge";
-                      // Navigate to incharge dashboard
-                    },
-                  ),
-                  _UserTypeCard(
-                    title: "Admin",
-                    icon: Icons.admin_panel_settings,
-                    onTap: () {
-                      UserModel.userType = "Admin";
-                      // Navigate to admin dashboard
-                    },
-                  ),
-                ],
-              ),
-            ),
-            ElevatedButton(
-              onPressed: () {
-                switch (UserModel.userType) {
-                  case "Admin":
-                    Navigator.pushNamed(context, '/admin');
-                    break;
+          const SizedBox(height: 24),
 
-                  case "Incharge":
-                    Navigator.pushNamed(context, '/incharge');
-                    break;
-
-                  case "Parent":
-                    Navigator.pushNamed(context, '/parent');
-                    break;
-
-                  case "Teacher":
-                    Navigator.pushNamed(context, '/teacher');
-                    break;
-
-                  default:
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      const SnackBar(content: Text("Invalid user type")),
-                    );
-                }
-              },
-              child: Icon(Icons.subdirectory_arrow_left_sharp),
-            ),
-          ],
+          Center(child: Pinput(controller: controllers)),
+        ],
+      ),
+      bottomSheet: SafeArea(
+        child: SizedBox(
+          height: 50,
+          width: double.infinity,
+          child: ElevatedButton(
+            onPressed: submitPin,
+            child: const Text("Verify"),
+          ),
         ),
       ),
     );

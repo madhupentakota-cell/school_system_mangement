@@ -14,10 +14,6 @@ import 'package:flutter/foundation.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
 
-<<<<<<< HEAD
-void main() {
-  runApp(const MyApp());
-=======
 import 'package:firebase_messaging/firebase_messaging.dart';
 
 Future<void> main() async {
@@ -25,7 +21,6 @@ Future<void> main() async {
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   await fireBaseSettings();
   runApp(MyApp());
->>>>>>> cb5803f (features implemented)
 }
 
 class MyApp extends StatelessWidget {
@@ -43,11 +38,8 @@ class MyApp extends StatelessWidget {
         '/userType': (context) => UserTypeScreen(),
         '/teacher': (context) => TeacherDashboard(),
         '/result': (context) => StudentResultScreen(),
-<<<<<<< HEAD
         '/pickup': (context) => PickupRequestScreen(),
-=======
         '/fee': (context) => FeeScreen(),
->>>>>>> cb5803f (features implemented)
       },
     );
   }
