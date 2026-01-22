@@ -53,7 +53,7 @@ The School Management System is a mobile application built using **Flutter** for
 * 🏆 Exam result analysis (subject-wise marks)
 * 🎨 Custom themes, app bars, and drawers
 * ♻️ Reusable and clean Flutter widgets
-
+<img src="https://raw.githubusercontent.com/pentakotamadhusudhan/school_system_mangement/refs/heads/Master/assets/screen_shots/Screenshot_2026-01-22-10-32-19-77_27eec305329a00d58fec7870ed4ec269.jpg">
 ---
 
 ## 🛠️ Tech Stack
