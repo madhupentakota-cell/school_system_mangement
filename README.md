@@ -59,10 +59,12 @@ The **School Management System** is a cross-platform mobile application built wi
 ## 📸 App Screenshots
 
 <p align="center">
+    <img src="https://raw.githubusercontent.com/pentakotamadhusudhan/school_system_mangement/refs/heads/Master/assets/screen_shots/Screenshot_2026-01-22-10-32-35-99_27eec305329a00d58fec7870ed4ec269.jpg" width="220" />
   <img src="https://raw.githubusercontent.com/pentakotamadhusudhan/school_system_mangement/refs/heads/Master/assets/screen_shots/Screenshot_2026-01-22-10-32-19-77_27eec305329a00d58fec7870ed4ec269.jpg" width="220" />
   <img src="https://raw.githubusercontent.com/pentakotamadhusudhan/school_system_mangement/refs/heads/Master/assets/screen_shots/Screenshot_2026-01-22-10-32-40-94_27eec305329a00d58fec7870ed4ec269.jpg" width="220" />
   <img src="https://raw.githubusercontent.com/pentakotamadhusudhan/school_system_mangement/refs/heads/Master/assets/screen_shots/Screenshot_2026-01-22-10-32-09-30_27eec305329a00d58fec7870ed4ec269.jpg" width="220" />
   <img src="https://raw.githubusercontent.com/pentakotamadhusudhan/school_system_mangement/refs/heads/Master/assets/screen_shots/Screenshot_2026-01-22-10-32-26-29_27eec305329a00d58fec7870ed4ec269.jpg" width="220" />
+  
 </p>
 
 ---
