@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:schoolmanagementsystem/screens/auth/fee_screen.dart';
-import 'package:schoolmanagementsystem/screens/auth/leave_request_screen.dart';
+import 'package:schoolmanagementsystem/screens/parent_module/fee_screen.dart';
+import 'package:schoolmanagementsystem/screens/parent_module/leave_request_screen.dart';
 
 Drawer TeacherDrawer() {
   return Drawer(

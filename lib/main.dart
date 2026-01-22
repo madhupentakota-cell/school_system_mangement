@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:schoolmanagementsystem/fire_base_config/fire_base_settings.dart';
-import 'package:schoolmanagementsystem/screens/auth/exam_results_screen.dart';
-import 'package:schoolmanagementsystem/screens/auth/fee_screen.dart';
-import 'package:schoolmanagementsystem/screens/auth/parent_dashboard.dart';
-import 'package:schoolmanagementsystem/screens/auth/user_selection_screen.dart';
+import 'package:schoolmanagementsystem/screens/parent_module/exam_results_screen.dart';
+import 'package:schoolmanagementsystem/screens/parent_module/fee_screen.dart';
+import 'package:schoolmanagementsystem/screens/parent_module/parent_dashboard.dart';
+import 'package:schoolmanagementsystem/screens/parent_module/user_selection_screen.dart';
 import 'package:schoolmanagementsystem/screens/pickup_request_screen.dart';
 import 'package:schoolmanagementsystem/screens/teacher/teacher_dashboard.dart';
 import 'package:schoolmanagementsystem/theme/app_theme.dart';
-import 'screens/auth/login_screen.dart';
+import 'screens/parent_module/login_screen.dart';
 // core Flutter primitives
 import 'package:flutter/foundation.dart';
 // core FlutterFire dependency

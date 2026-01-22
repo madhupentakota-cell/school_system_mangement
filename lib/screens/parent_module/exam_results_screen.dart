@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 import 'package:confetti/confetti.dart';
+import 'package:schoolmanagementsystem/screens/parent_module/report_card_screen.dart';
 import 'package:schoolmanagementsystem/utils/utils.dart';
 
 class StudentResultScreen extends StatefulWidget {
@@ -113,8 +114,8 @@ class _StudentResultScreenState extends State<StudentResultScreen>
                                   alignment: Alignment.center,
                                   children: [
                                     SizedBox(
-                                      width: 90,
-                                      height: 90,
+                                      width: 70,
+                                      height: 70,
                                       child: CircularProgressIndicator(
                                         value: percentage,
                                         strokeWidth: 8,
@@ -188,7 +189,7 @@ class _StudentResultScreenState extends State<StudentResultScreen>
                 Align(
                   alignment: Alignment.centerLeft,
                   child: Text(
-                    "Subject-wise Marks",
+                    "Final Exams ",
                     style: Theme.of(context).textTheme.titleLarge,
                   ),
                 ),
@@ -230,6 +231,9 @@ class _StudentResultScreenState extends State<StudentResultScreen>
                     );
                   },
                 ),
+                ElevatedButton(onPressed: (){
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=> ProgressReportScreen()));
+                }, child: Text("Prograss report"))
               ],
             ),
           ),

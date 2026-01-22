@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 
 import '../../theme/custome_drawers.dart';
-import '../auth/assignment_screen.dart';
-import '../auth/parent_dashboard.dart';
-import '../auth/student_attendence_screen.dart';
-import '../auth/time_table_screen.dart';
+import '../parent_module/assignment_screen.dart';
+import '../parent_module/parent_dashboard.dart';
+import '../parent_module/student_attendence_screen.dart';
+import '../parent_module/time_table_screen.dart';
 
 class TeacherDashboard extends StatefulWidget {
   TeacherDashboard({super.key});

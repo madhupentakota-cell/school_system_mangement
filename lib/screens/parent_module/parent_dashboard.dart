@@ -2,9 +2,9 @@ import 'package:carousel_slider/carousel_options.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:schoolmanagementsystem/models/user_model.dart';
-import 'package:schoolmanagementsystem/screens/auth/student_attendence_screen.dart';
-import 'package:schoolmanagementsystem/screens/auth/student_details_screen.dart';
-import 'package:schoolmanagementsystem/screens/auth/time_table_screen.dart';
+import 'package:schoolmanagementsystem/screens/parent_module/student_attendence_screen.dart';
+import 'package:schoolmanagementsystem/screens/parent_module/student_details_screen.dart';
+import 'package:schoolmanagementsystem/screens/parent_module/time_table_screen.dart';
 
 import '../../theme/custome_appbar.dart';
 import '../../theme/custome_drawers.dart';
